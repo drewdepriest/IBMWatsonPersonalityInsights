@@ -19,14 +19,21 @@ def get_all_tweets(screen_name):
 	#authorize twitter, initialize tweepy
 	auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 	auth.set_access_token(access_token, access_token_secret)
-	api = tweepy.API(auth)
 	
 	#initialize a list to hold all the tweepy Tweets
-	alltweets = []	
+	alltweets = []
+
+	try:
+		api = tweepy.API(auth)
+
+		#make initial request for most recent tweets (200 is the maximum allowed count)
+		new_tweets = api.user_timeline(screen_name = screen_name,count=200)
 	
-	#make initial request for most recent tweets (200 is the maximum allowed count)
-	new_tweets = api.user_timeline(screen_name = screen_name,count=200)
-	
+	except tweepy.TweepError as e:
+		print e.message[0]['message']	# prints error message
+		print "Error code: " + str(e.message[0]['code'])  # prints error code
+		return	# stops the entire function from continuing
+
 	#save most recent tweets
 	alltweets.extend(new_tweets)
 	
