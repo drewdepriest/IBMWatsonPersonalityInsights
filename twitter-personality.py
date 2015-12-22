@@ -5,14 +5,14 @@ import json
 import sys
 
 # twitter credentials
-consumer_key = "b9i9pr9z52oc5qR7lMjbF0KBZ"
-consumer_secret = "sFZv8MmchhjqgLUGKfigsVd88hTruPirOr3P4ujojcDump4HoH"
-access_token = "47670288-rgWq0PJlBrvAnRrJCXOjbIpupLPLu6xySVqgB7L35"
-access_token_secret = "SQ8tYy3FxlT8hIFQVH1UpDdujVZedGbuXKy31o5inFLN6"
+consumer_key = "TWITTER_CONSUMER_KEY"
+consumer_secret = "TWITTER_CONSUMER_SECRET"
+access_token = "TWITTER_ACCESS_TOKEN"
+access_token_secret = "TWITTER_ACCESS_TOKEN_SECRET"
 
 # watson credentials
-username = "8c17a986-a308-4959-8d1f-33bd23f6efc5"
-password = "wEtRWJMlkcoV"
+username = "WATSON_PI_USERNAME"
+password = "WATSON_PI_PASSWORD"
 
 def get_all_tweets(screen_name):
 	#Twitter only allows access to a users most recent 3240 tweets with this method
